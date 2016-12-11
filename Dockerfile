@@ -56,5 +56,6 @@ RUN git clone https://github.com/h2o/h2o.git ~/src/github.com/h2o/h2o \
 
 WORKDIR /var/server
 COPY h2o.conf /var/server
+COPY server.rb /var/server
 EXPOSE 80
 CMD ["h2o", "--mode=master", "-c", "h2o.conf"]
