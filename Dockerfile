@@ -22,9 +22,10 @@ RUN yum install -y \
         zlib-devel
 
 # haconiwa
-RUN git clone https://github.com/haconiwa/haconiwa.git ~/src/github.com/haconiwa/haconiwa \
-    && cd ~/src/github.com/haconiwa/haconiwa \
-    && rake compile
+RUN cd \
+    && wget https://github.com/haconiwa/haconiwa/releases/download/v0.5.1/haconiwa-v0.5.1.x86_64-pc-linux-gnu.tgz \
+    && tar xzf haconiwa-v0.5.1.x86_64-pc-linux-gnu.tgz \
+    && install hacorb hacoirb haconiwa /usr/local/bin
 
 # libuv (h2o and wslay dependency)
 RUN git clone --recursive https://github.com/libuv/libuv ~/src/github.com/libuv/libuv \
